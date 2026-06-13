@@ -1,1 +1,673 @@
-tes
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>untuk rizkya yusriyati 💗</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #ffdde1 0%, #f9c9d4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* animasi hati berjatuhan */
+        .heart-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: floatHeart 8s linear infinite;
+            color: #ff4d6d;
+            user-select: none;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) scale(0.6);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* container utama slider */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            min-height: 600px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border-radius: 56px;
+            box-shadow: 0 25px 45px rgba(255, 75, 110, 0.3), 0 0 0 1px rgba(255, 215, 225, 0.6);
+            overflow: hidden;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .slides-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide {
+            display: none;
+            padding: 40px 32px;
+            width: 100%;
+            height: 100%;
+            animation: fadeSlide 0.5s ease;
+            background: rgba(255, 248, 250, 0.9);
+            border-radius: 56px;
+            backdrop-filter: blur(4px);
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* slide 1 - pin lock */
+        .pin-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 520px;
+            text-align: center;
+        }
+
+        .lock-icon {
+            font-size: 64px;
+            background: linear-gradient(135deg, #ff99b6, #ff4d6d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 24px;
+        }
+
+        .pin-title {
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(120deg, #c9184a, #ff758f);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            letter-spacing: -0.3px;
+        }
+
+        .pin-sub {
+            color: #a13e54;
+            font-weight: 500;
+            margin-bottom: 32px;
+            background: rgba(255, 220, 230, 0.8);
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-size: 14px;
+        }
+
+        .pin-input-area {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .pin-digit {
+            width: 65px;
+            height: 75px;
+            background: white;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #b13e5c;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+            border: 1px solid #ffb7c7;
+            transition: 0.2s;
+        }
+
+        .pin-input {
+            background: rgba(255,240,243,0.9);
+            border: 2px solid #ffb7c7;
+            padding: 14px 20px;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            letter-spacing: 8px;
+            border-radius: 60px;
+            width: 220px;
+            outline: none;
+            color: #b13e5c;
+            font-family: monospace;
+        }
+
+        .pin-input:focus {
+            border-color: #ff4d6d;
+            box-shadow: 0 0 0 3px rgba(255,77,109,0.2);
+        }
+
+        .btn-unlock {
+            background: linear-gradient(95deg, #ff85a1, #ff4d6d);
+            border: none;
+            padding: 14px 44px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 8px 18px rgba(199, 50, 80, 0.3);
+            margin-top: 16px;
+        }
+
+        .btn-unlock:hover {
+            transform: scale(1.02);
+            background: linear-gradient(95deg, #ff6b8f, #ff3360);
+            box-shadow: 0 10px 22px rgba(199, 50, 80, 0.4);
+        }
+
+        .error-msg {
+            color: #c9184a;
+            background: #ffe3e8;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 18px;
+            display: inline-block;
+        }
+
+        /* slide 2 & 3 umum */
+        .content-card {
+            max-width: 780px;
+            margin: 0 auto;
+            background: rgba(255, 250, 252, 0.85);
+            border-radius: 48px;
+            padding: 32px 28px;
+            box-shadow: 0 20px 35px rgba(199, 60, 90, 0.12);
+            backdrop-filter: blur(2px);
+            border: 1px solid #ffe2ec;
+        }
+
+        .love-msg {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #3d1e2c;
+            font-weight: 500;
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        .love-msg p {
+            margin-bottom: 18px;
+        }
+
+        .question-highlight {
+            background: linear-gradient(120deg, #ffdfe6, #ffc0d0);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: #b13255;
+            margin: 12px 0 8px;
+        }
+
+        .btn-group {
+            margin-top: 32px;
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: #ffa5be;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 44px;
+            font-weight: 600;
+            font-size: 16px;
+            color: #fff0f3;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-btn.primary {
+            background: linear-gradient(135deg, #ff6b8b, #ff4d6d);
+            color: white;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.02);
+        }
+
+        /* date plan styling */
+        .date-card {
+            margin-top: 20px;
+            background: #fff6f9;
+            border-radius: 40px;
+            padding: 24px;
+            border-left: 8px solid #ff7b9c;
+        }
+
+        .date-item {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .date-emoji {
+            font-size: 28px;
+        }
+
+        .date-text {
+            font-weight: 500;
+            color: #4a2a36;
+            font-size: 16px;
+        }
+
+        .screenshot-mock {
+            background: #ffeef3;
+            border-radius: 32px;
+            padding: 18px;
+            margin-top: 24px;
+            text-align: center;
+            border: 1px dashed #ff8faa;
+        }
+
+        .ss-title {
+            font-weight: 700;
+            color: #cc4b6e;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .mock-ss {
+            background: #ffffffdb;
+            border-radius: 28px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #2e1c24;
+            text-align: left;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            border: 1px solid #ffc0ce;
+        }
+
+        .mock-line {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ffe2ea;
+            padding: 8px 0;
+        }
+
+        .btn-small {
+            background: #ff99b4;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            margin-top: 14px;
+            cursor: pointer;
+            color: white;
+        }
+
+        @media (max-width: 680px) {
+            .slide {
+                padding: 28px 20px;
+            }
+            .pin-digit {
+                width: 50px;
+                height: 60px;
+                font-size: 26px;
+            }
+            .love-msg {
+                font-size: 14px;
+            }
+            .content-card {
+                padding: 24px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="heart-bg" id="heartBg"></div>
+
+<div class="slider-container">
+    <div class="slides-wrapper">
+        <!-- slide 1: unlock pin -->
+        <div class="slide active" id="slide1">
+            <div class="pin-screen">
+                <div class="lock-icon">💗🔐</div>
+                <div class="pin-title">unlock secret pin</div>
+                <div class="pin-sub">masukkan sandi 6 digit untuk membaca hati</div>
+                <div class="pin-input-area">
+                    <div class="pin-digit" id="pinDisplay">●●●●●●</div>
+                </div>
+                <input type="password" id="pinInput" maxlength="6" class="pin-input" placeholder="000000" inputmode="numeric">
+                <button class="btn-unlock" id="unlockBtn">buka pesan rahasia ✨</button>
+                <div id="pinError" class="error-msg" style="display: none;">kode salah, coba lagi sayang 😢</div>
+            </div>
+        </div>
+
+        <!-- slide 2: kata kata ala menembak perempuan -->
+        <div class="slide" id="slide2">
+            <div class="content-card">
+                <div class="love-msg">
+                    <p>haiii my bidadari rizkya yusriyati, lucu jugaa yaa cerita kitaa inii kayak gaa espect bisa sampe diposisi inii, yang awalnya kita cuma orang asing yang udah ga saling kenal, tiba tiba kita dipertemukan lagii dimalam itu dan di hari ituu sama siapa<br>
+                    cobaa tebakkkk YAPPP, tidak lain tidak bukan si kuda lumping ituu teman kita berdua, tau gaa kehadiran kamu bikin warna baru buat akuu si anak liar inii hehehe, sejauh iniii udah banyak hal yang kita lewatin dari obrolan obrolan kecil kitaa sampai hal hal yang udah kita laluin sama sama, aku senang bisa denger cerita kamu, bisa cerita ke kamu, dan ada di hari hari kamuu<br>
+                    aku ngga mau janji yang berlebihan yang gaada ujungnya dan gaada kepastiannya,udah saatnya akuu bilang inii sama kamuu aku mau hubungan yang lebih dari ini sama kamu sama kaya dulu lagi, kita ngulang kisah ini lagi bedanya kita sekarang ada di versi yang lebih dewasa, masih banyak hal hal yang belum kita berdua lewatin, masih banyak tantangan tantangan yang bisa kita lewatin bareng bareng berdua sama kamuu,jadii sayaang...</p>
+                    <div class="question-highlight">💌 do you want to be my girlfriend again, my ex, my first experience?? 💌</div>
+                </div>
+                <div class="btn-group">
+                    <button class="nav-btn" id="prevFrom2">⬅️ sebelumnya</button>
+                    <button class="nav-btn primary" id="nextTo3">lanjut ke rencana date ➡️</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- slide 3: rencana date kita + ss hasil rencana date kita -->
+        <div class="slide" id="slide3">
+            <div class="content-card">
+                <div class="love-msg">
+                    <p>📅✨ rencana date spesial untuk kita berdua ✨📅</p>
+                </div>
+                <div class="date-card">
+                    <div class="date-item"><span class="date-emoji">📆</span><span class="date-text">hari: sabtu, 15 maret 2025 (kita pilih hari penuh cinta)</span></div>
+                    <div class="date-item"><span class="date-emoji">⏰</span><span class="date-text">waktu: mulai jam 4 sore sampai malam (golden hour kita)</span></div>
+                    <div class="date-item"><span class="date-emoji">📍</span><span class="date-text">tempat: 1. taman langit cafe (rooftop view pink sunset)  2. sesi jalan di balkot sambil ngobrol nostalgic</span></div>
+                    <div class="date-item"><span class="date-emoji">🍽️</span><span class="date-text">dinner: pasta seafood + dessert strawberry cheesecake & kopi susu gula aren</span></div>
+                    <div class="date-item"><span class="date-emoji">🎁</span><span class="date-text">kejutan: aku bawa flash disk berisi playlist lagu-lagu era kita dulu + surat tulisan tangan</span></div>
+                    <div class="date-item"><span class="date-emoji">💭</span><span class="date-text">penutup: kita buat janji ga ada kata terlambat untuk memulai lagi, peluk erat dan foto polaroid</span></div>
+                </div>
+                
+                <!-- ss hasil rencana date kita (mock screenshot) -->
+                <div class="screenshot-mock">
+                    <div class="ss-title">📸 ss hasil rencana date kita 💬</div>
+                    <div class="mock-ss">
+                        <div class="mock-line">✨ <strong>chat with: rizkya yusriyati 💖</strong> ✨</div>
+                        <div class="mock-line">🗓️ date plan confirmed!</div>
+                        <div class="mock-line">📍 tempat: taman langit cafe & balkot nostalgia walk</div>
+                        <div class="mock-line">🕓 jam: 16.00 - 21.00</div>
+                        <div class="mock-line">🍰 menu: strawberry cheesecake, pasta seafood, kopi susu</div>
+                        <div class="mock-line">🎵 special: "our era" playlist + handwritten letter</div>
+                        <div class="mock-line" style="border-bottom: none;">💗 status: <span style="background:#ffcedb; border-radius:20px; padding:2px 12px;">rizkya bilang "aku mau 💕"</span></div>
+                    </div>
+                    <div class="btn-small" id="copyPlanBtn">📋 salin rencana date (buat kenangan)</div>
+                </div>
+                <div class="btn-group" style="margin-top: 28px;">
+                    <button class="nav-btn" id="prevFrom3">⬅️ kembali ke kata cinta</button>
+                    <button class="nav-btn primary" id="restartBtn">💗 mulai dari awal (unlock pin) 💗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // PIN yang benar: 310107
+    const CORRECT_PIN = "310107";
+    let currentSlide = 1; // 1,2,3
+
+    // ambil elemen
+    const slide1 = document.getElementById('slide1');
+    const slide2 = document.getElementById('slide2');
+    const slide3 = document.getElementById('slide3');
+    const unlockBtn = document.getElementById('unlockBtn');
+    const pinInput = document.getElementById('pinInput');
+    const pinError = document.getElementById('pinError');
+    const pinDisplaySpan = document.getElementById('pinDisplay');
+    
+    // tombol navigasi
+    const prevFrom2 = document.getElementById('prevFrom2');
+    const nextTo3 = document.getElementById('nextTo3');
+    const prevFrom3 = document.getElementById('prevFrom3');
+    const restartBtn = document.getElementById('restartBtn');
+    const copyPlanBtn = document.getElementById('copyPlanBtn');
+
+    // fungsi update tampilan slide
+    function showSlide(slideNumber) {
+        slide1.classList.remove('active');
+        slide2.classList.remove('active');
+        slide3.classList.remove('active');
+        if (slideNumber === 1) slide1.classList.add('active');
+        if (slideNumber === 2) slide2.classList.add('active');
+        if (slideNumber === 3) slide3.classList.add('active');
+        currentSlide = slideNumber;
+        // animasi hati tetap berjalan
+        generateFloatingHearts();
+    }
+
+    // event untuk unlock pin
+    function validatePin() {
+        const enteredPin = pinInput.value.trim();
+        if (enteredPin === CORRECT_PIN) {
+            // pin benar -> pindah ke slide 2
+            showSlide(2);
+            pinError.style.display = 'none';
+            pinInput.value = '';
+            // Update tampilan dot
+            pinDisplaySpan.innerText = '●●●●●●';
+        } else {
+            pinError.style.display = 'block';
+            // sedikit efek getar
+            pinError.style.transform = 'scale(1.02)';
+            setTimeout(() => { if(pinError) pinError.style.transform = ''; }, 300);
+            // kosongkan input setelah gagal?
+            pinInput.value = '';
+            pinDisplaySpan.innerText = '●●●●●●';
+        }
+    }
+
+    // update pin display input (saat mengetik)
+    pinInput.addEventListener('input', function(e) {
+        let val = e.target.value;
+        val = val.replace(/\D/g, '').slice(0,6);
+        pinInput.value = val;
+        let masked = '';
+        for(let i=0; i<val.length; i++) masked += '●';
+        for(let i=val.length; i<6; i++) masked += '●';
+        pinDisplaySpan.innerText = masked;
+        if(pinError.style.display === 'block') pinError.style.display = 'none';
+    });
+
+    unlockBtn.addEventListener('click', validatePin);
+    pinInput.addEventListener('keypress', function(e) {
+        if(e.key === 'Enter') validatePin();
+    });
+
+    // navigasi antar slide 2 dan 3
+    prevFrom2.addEventListener('click', () => {
+        showSlide(1);
+        // reset input pin
+        pinInput.value = '';
+        pinDisplaySpan.innerText = '●●●●●●';
+        pinError.style.display = 'none';
+    });
+    nextTo3.addEventListener('click', () => {
+        showSlide(3);
+    });
+    prevFrom3.addEventListener('click', () => {
+        showSlide(2);
+    });
+    restartBtn.addEventListener('click', () => {
+        showSlide(1);
+        pinInput.value = '';
+        pinDisplaySpan.innerText = '●●●●●●';
+        pinError.style.display = 'none';
+    });
+
+    // copy rencana date (ss hasil rencana date)
+    copyPlanBtn?.addEventListener('click', () => {
+        const dateTextContent = `
+📆 rencana date spesial:
+hari: sabtu, 15 maret 2025
+waktu: 16.00 - 21.00
+tempat: taman langit cafe (rooftop) & balkot nostalgia walk
+dinner: pasta seafood, strawberry cheesecake, kopi susu gula aren
+kejutan: flashdisk playlist + surat tulisan tangan
+penutup: peluk erat & foto polaroid 💗
+(ss dari "hasil rencana date kita")
+        `;
+        navigator.clipboard.writeText(dateTextContent).then(() => {
+            const originalText = copyPlanBtn.innerText;
+            copyPlanBtn.innerText = "✅ tersalin! rencana date siap 💖";
+            setTimeout(() => {
+                if(copyPlanBtn) copyPlanBtn.innerText = originalText;
+            }, 2000);
+        }).catch(() => {
+            alert("gagal salin, tapi rencana date tetap di hati ya 💕");
+        });
+    });
+
+    // animasi floating hearts yang banyak dan modern
+    function generateFloatingHearts() {
+        const container = document.getElementById('heartBg');
+        if(!container) return;
+        // setiap beberapa detik tambahin hati, biar dinamis, batasi jumlah maks agar tidak overload
+        const existingHearts = container.querySelectorAll('.heart').length;
+        if(existingHearts > 45) return;
+        for(let i = 0; i < 3; i++) {
+            createHeart(container);
+        }
+    }
+
+    function createHeart(parent) {
+        const heartDiv = document.createElement('div');
+        heartDiv.classList.add('heart');
+        const heartSymbols = ['❤️', '💗', '💖', '🌸', '💕', '💓', '💞', '🌷'];
+        heartDiv.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        const size = Math.random() * 24 + 18; // 18px - 42px
+        heartDiv.style.fontSize = size + 'px';
+        heartDiv.style.left = Math.random() * 100 + '%';
+        heartDiv.style.animationDuration = Math.random() * 5 + 5 + 's';
+        heartDiv.style.animationDelay = Math.random() * 3 + 's';
+        heartDiv.style.opacity = Math.random() * 0.5 + 0.2;
+        heartDiv.style.filter = 'drop-shadow(0 4px 8px rgba(255,80,110,0.2))';
+        parent.appendChild(heartDiv);
+        setTimeout(() => {
+            if(heartDiv && heartDiv.remove) heartDiv.remove();
+        }, 9000);
+    }
+
+    // interval menambah hati secara periodik
+    let heartInterval;
+    function startHeartRain() {
+        if(heartInterval) clearInterval(heartInterval);
+        heartInterval = setInterval(() => {
+            generateFloatingHearts();
+        }, 800);
+    }
+    startHeartRain();
+
+    // tambahkan extra hati di awal
+    for(let i=0;i<18;i++) {
+        setTimeout(() => generateFloatingHearts(), i*120);
+    }
+
+    // tambahan responsive: pastikan pin input numeric di mobile friendly
+    pinInput.setAttribute('inputmode', 'numeric');
+    pinInput.setAttribute('autocomplete', 'off');
+
+    // efek visual hati juga ketika slide change 
+    // kita panggil generate hearts tiap kali slide berubah biar makin romantis
+    const originalShowSlide = showSlide;
+    window.showSlide = function(slideNumber) {
+        originalShowSlide(slideNumber);
+        for(let i=0;i<5;i++) setTimeout(() => generateFloatingHearts(), i*80);
+    };
+    showSlide = function(slideNumber) {
+        slide1.classList.remove('active');
+        slide2.classList.remove('active');
+        slide3.classList.remove('active');
+        if (slideNumber === 1) slide1.classList.add('active');
+        if (slideNumber === 2) slide2.classList.add('active');
+        if (slideNumber === 3) slide3.classList.add('active');
+        currentSlide = slideNumber;
+        for(let i=0;i<6;i++) setTimeout(() => generateFloatingHearts(), i*70);
+    };
+    window.showSlide = showSlide;
+    // override function binding
+    window.showSlide(currentSlide);
+    // perbaiki agar method global terpanggil
+    const origPrev2 = prevFrom2.onclick;
+    const origNext3 = nextTo3.onclick;
+    const origPrev3 = prevFrom3.onclick;
+    const origRestart = restartBtn.onclick;
+    // re-declare dengan showSlide baru
+    prevFrom2.onclick = () => { showSlide(1); pinInput.value = ''; pinDisplaySpan.innerText = '●●●●●●'; pinError.style.display = 'none'; };
+    nextTo3.onclick = () => { showSlide(3); };
+    prevFrom3.onclick = () => { showSlide(2); };
+    restartBtn.onclick = () => { showSlide(1); pinInput.value = ''; pinDisplaySpan.innerText = '●●●●●●'; pinError.style.display = 'none'; };
+
+    // pastikan jika copy tidak error
+    if(copyPlanBtn) {
+        copyPlanBtn.onclick = () => {
+            const datePlanMock = `📅 rencana date kita (ss hasil diskusi)
+hari: sabtu, 15 maret 2025
+waktu: jam 4 sore - 9 malam
+tempat: taman langit cafe (rooftop pink sunset) + balkot nostalgia
+menu: pasta seafood, strawberry cheesecake, kopi susu
+kejutan: playlist kenangan + surat
+status: resmi jadi second chapter kita 💗`;
+            navigator.clipboard.writeText(datePlanMock).then(() => {
+                copyPlanBtn.innerText = '💾 tersalin ke clipboard!';
+                setTimeout(() => copyPlanBtn.innerText = '📋 salin rencana date (buat kenangan)', 2000);
+            });
+        };
+    }
+    // generate extra background hearts secara kontinyu
+    setInterval(() => {
+        if(document.hasFocus()) generateFloatingHearts();
+    }, 1200);
+</script>
+</body>
+</html>
